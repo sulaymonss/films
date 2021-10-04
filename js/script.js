@@ -9,6 +9,12 @@ const elSidebar = selectElem('.sidebar');
 const elHeaderBtn = selectElem('.header__bookmark');
 const closeSidebar = selectElem('.closeSidebar');
 const elCounter = selectElem('.counter');
+const elModal = selectElem('.modal');
+const closeModal = selectElem('.closeModal');
+const elModalTitle = selectElem('.modal__title');
+const elModalOverview = selectElem('.modal__overview');
+const elModalDate = selectElem('.modal__date');
+const elModalGenre = selectElem('.modal__genre');
 
 // sidebar
 
@@ -33,6 +39,31 @@ function renderMovies(filmsArr, element){
         selectElem('.films__card-title', cloneTemplate).textContent = film.title;
         selectElem('.films__release-date', cloneTemplate).textContent = normalizeDate(film.release_date);
         selectElem('.films__release-date', cloneTemplate).datetime = normalizeDate(film.release_date);
+
+        const MoreBtn = selectElem('.films__btn', cloneTemplate);
+        MoreBtn.dataset.id = film.id;
+
+        MoreBtn.addEventListener('click', (e) =>{
+            elModal.classList.add('modal-active');
+            const filmId = e.target.dataset.id;
+            let result = filmsArr.find(film => film.id === filmId);
+
+            elModalTitle.textContent = result.title;
+            elModalOverview.textContent = result.overview;
+            elModalDate.textContent = normalizeDate(result.release_date);
+            
+            elModalGenre.innerHTML = null;
+            result.genres.forEach(genre => {
+                const newLi = createDOM('li');
+                newLi.textContent = genre;
+
+                elModalGenre.appendChild(newLi);
+            });
+        });
+
+        closeModal.addEventListener('click', () =>{
+            elModal.classList.remove('modal-active');
+        });
         
         const bookmarkBtn = selectElem('.bookmark', cloneTemplate);
         bookmarkBtn.dataset.id = film.id;

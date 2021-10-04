@@ -1,4 +1,4 @@
-var films = [
+let films = [
 	{
 		id: '287947',
 		title: 'Shazam!',

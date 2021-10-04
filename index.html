@@ -44,7 +44,6 @@
                 </form>
                 <ul class="films__card-wrapper"></ul>
 
-
                 <template id="template">
                     <li class="films__card">
                         <img class="films__img" src="https://picsum.photos/300" width="300" height="250">
@@ -56,12 +55,24 @@
                     </li>
                 </template>
 
-                <!-- modal -->
+                <!-- sidebar -->
 
                 <div class="sidebar">
                     <div class="sidebar__wrapper">
                         <i class="fas fa-times closeSidebar"></i>
                         <ul class="sidebar__card-wrapper"></ul>
+                    </div>
+                </div>
+
+                <!-- modal -->
+
+                <div class="modal">
+                    <div class="modal__wrapper">
+                        <i class="fas fa-times closeModal"></i>
+                        <h2 class="modal__title"></h2>
+                        <p class="modal__overview"></p>
+                        <span class="modal__date"></span>
+                        <ul class="modal__genre"></ul>
                     </div>
                 </div>
             </div>
