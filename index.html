@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "icon" type = "image/png" href = "./img/film.png">
     <title>WORLD FILMS</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,6 +18,8 @@
     <header class="header">
         <div class="container">
             <h1 class="header__title">WORLD FILMS</h1>
+            <i class="far fa-bookmark header__bookmark"></i>
+            <span class="counter">0</span>  
         </div>
     </header>
 
@@ -46,10 +49,21 @@
                     <li class="films__card">
                         <img class="films__img" src="https://picsum.photos/300" width="300" height="250">
                         <h3 class="films__card-title">Shazam!</h3>
+                        <label for="bookmark"><i class="far fa-bookmark bookmark"></i></label>
+                        <input type="checkbox" id="bookmark" >
                         <time class="films__release-date" datetime="1.19.1970">1.19.1970</time>
                         <button class="films__btn">Show more</button>
                     </li>
                 </template>
+
+                <!-- modal -->
+
+                <div class="sidebar">
+                    <div class="sidebar__wrapper">
+                        <i class="fas fa-times closeSidebar"></i>
+                        <ul class="sidebar__card-wrapper"></ul>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

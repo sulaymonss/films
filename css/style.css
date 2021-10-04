@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -24,6 +28,9 @@ img{
     height: auto;
     border-radius: 8px;
 }
+ul{
+    list-style-type: none;
+}
 .header{
     position: fixed;
     width: 100%;
@@ -33,13 +40,31 @@ img{
     background-color: #143B5A;
     color: #fff;
     padding: 21px 0;
+    z-index: 1;
 }
 .header .container{
+    position: relative;
     background-color: transparent;
     padding: 0;
 }
 .header__title{
     text-align: center;
+}
+.header__bookmark{
+    position: absolute;
+    right: 30px;
+    top: 8px;
+    font-size: 23px;
+    cursor: pointer;
+}
+.counter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    font-size: 14px;
 }
 .main{
     flex-grow: 1;
@@ -57,7 +82,9 @@ img{
     padding: 0;
 }
 .films__card{
+    position: relative;
     width: 23%;
+    min-width: 250px;
     padding: 10px;
     border-radius: 8px;
     height: 100%;
@@ -125,6 +152,63 @@ img{
     background-color: #316B83;
     font-weight: 600;
     color: #fff; 
+}
+
+.films__card-title{
+    margin: 8px 0;
+}
+
+.bookmark{
+    position: absolute;
+    right: 10px;
+    bottom: 83px;  
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#bookmark{
+    display: none;
+}
+
+.sidebar{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.sidebar__card-wrapper{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    margin-bottom: 50px;
+}
+
+.sidebar__wrapper{
+    position: fixed;
+    right: 0;
+    max-width: 500px;
+    width: 100%;
+    margin-top: 79px;
+    background-color: #DEDEDE;
+    padding: 25px;
+    height: 100%;
+    overflow: auto;
+}
+
+.fa-times{
+    position: fixed;
+    font-size: 23px;
+    color: #333;
+    cursor: pointer;
+}
+
+.active{
+    display: block;
 }
 
 @media(max-width:1020px){
